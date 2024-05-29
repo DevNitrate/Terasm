@@ -249,6 +249,10 @@ void Cpu::execute() {
                 this->reg_1 = arg2;
             } else if (instruction.arg1 == "r2") {
                 this->reg_2 = arg2;
+            } else if (instruction.arg1 == "r3") {
+                this->reg_3 = arg2;
+            } else if (instruction.arg1 == "r4") {
+                this->reg_4 = arg2;
             } else if (instruction.arg1 == "addr") {
                 this->addr = arg2;
             } else if (instruction.arg1 == "if") {
@@ -275,6 +279,10 @@ void Cpu::execute() {
                 arg2 = this->reg_1;
             } else if (instruction.arg2 == "r2") {
                 arg2 = this->reg_2;
+            } else if (instruction.arg2 == "r3") {
+                arg2 = this->reg_3;
+            } else if (instruction.arg2 == "r4") {
+                arg2 = this->reg_4;
             } else if (instruction.arg2 == "addr") {
                 arg2 = this->addr;
             } else if (instruction.arg2 == "if") {
@@ -293,6 +301,10 @@ void Cpu::execute() {
                 this->reg_1 = arg2;
             } else if (instruction.arg1 == "r2") {
                 this->reg_2 = arg2;
+            } else if (instruction.arg1 == "r3") {
+                this->reg_3 = arg2;
+            } else if (instruction.arg1 == "r4") {
+                this->reg_4 = arg2;
             } else if (instruction.arg1 == "addr") {
                 this->addr = arg2;
             } else if (instruction.arg1 == "if") {
@@ -338,6 +350,10 @@ void Cpu::execute() {
                 this->ram[lastRam] = this->reg_1;
             } else if (arg == "r2") {
                 this->ram[lastRam] = this->reg_2;
+            } else if (arg == "r3") {
+                this->ram[lastRam] = this->reg_3;
+            } else if (arg == "r4") {
+                this->ram[lastRam] = this->reg_4;
             } else if (arg == "addr") {
                 this->ram[lastRam] = this->addr;
             } else if (arg == "if") {
@@ -359,6 +375,10 @@ void Cpu::execute() {
                 this->reg_1 = this->ram[this->addr];
             } else if (arg == "r2") {
                 this->reg_2 = this->ram[this->addr];
+            } else if (arg == "r3") {
+                this->reg_3 = this->ram[this->addr];
+            } else if (arg == "r4") {
+                this->reg_4 = this->ram[this->addr];
             } else if (arg == "addr") {
                 this->addr = this->ram[this->addr];
             } else if (arg == "if") {
@@ -383,6 +403,10 @@ void Cpu::execute() {
                 this->reg_1++;
             } else if (instruction.arg1 == "r2") {
                 this->reg_2++;
+            } else if (instruction.arg1 == "r3") {
+                this->reg_3++;
+            } else if (instruction.arg1 == "r4") {
+                this->reg_4++;
             } else if (instruction.arg1 == "addr") {
                 this->addr++;
             } else if (instruction.arg1 == "if") {
@@ -413,6 +437,10 @@ void Cpu::execute() {
                 reg1 = this->reg_1;
             } else if (instruction.arg1 == "r2") {
                 reg1 = this->reg_2;
+            } else if (instruction.arg1 == "r3") {
+                reg1 = this->reg_3;
+            } else if (instruction.arg1 == "r4") {
+                reg1 = this->reg_4;
             } else if (instruction.arg1 == "addr") {
                 reg1 = this->addr;
             } else if (instruction.arg1 == "if") {
@@ -431,6 +459,10 @@ void Cpu::execute() {
                 reg2 = this->reg_1;
             } else if (instruction.arg2 == "r2") {
                 reg2 = this->reg_2;
+            } else if (instruction.arg2 == "r3") {
+                reg2 = this->reg_3;
+            } else if (instruction.arg2 == "r4") {
+                reg2 = this->reg_4;
             } else if (instruction.arg2 == "addr") {
                 reg2 = this->addr;
             } else if (instruction.arg2 == "if") {
@@ -458,6 +490,10 @@ void Cpu::execute() {
                 reg1 = this->reg_1;
             } else if (instruction.arg1 == "r2") {
                 reg1 = this->reg_2;
+            } else if (instruction.arg1 == "r3") {
+                reg1 = this->reg_3;
+            } else if (instruction.arg1 == "r4") {
+                reg1 = this->reg_4;
             } else if (instruction.arg1 == "addr") {
                 reg1 = this->addr;
             } else if (instruction.arg1 == "if") {
@@ -476,6 +512,10 @@ void Cpu::execute() {
                 reg2 = this->reg_1;
             } else if (instruction.arg2 == "r2") {
                 reg2 = this->reg_2;
+            } else if (instruction.arg2 == "r3") {
+                reg2 = this->reg_3;
+            } else if (instruction.arg2 == "r4") {
+                reg2 = this->reg_4;
             } else if (instruction.arg2 == "addr") {
                 reg2 = this->addr;
             } else if (instruction.arg2 == "if") {
@@ -503,6 +543,10 @@ void Cpu::execute() {
                 reg1 = this->reg_1;
             } else if (instruction.arg1 == "r2") {
                 reg1 = this->reg_2;
+            } else if (instruction.arg1 == "r3") {
+                reg1 = this->reg_3;
+            } else if (instruction.arg1 == "r4") {
+                reg1 = this->reg_4;
             } else if (instruction.arg1 == "addr") {
                 reg1 = this->addr;
             } else if (instruction.arg1 == "if") {
@@ -521,6 +565,10 @@ void Cpu::execute() {
                 reg2 = this->reg_1;
             } else if (instruction.arg2 == "r2") {
                 reg2 = this->reg_2;
+            } else if (instruction.arg2 == "r3") {
+                reg1 = this->reg_3;
+            } else if (instruction.arg2 == "r4") {
+                reg1 = this->reg_4;
             } else if (instruction.arg2 == "addr") {
                 reg2 = this->addr;
             } else if (instruction.arg2 == "if") {

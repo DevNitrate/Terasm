@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 
-// [reg_1] [reg_2] [addr] [res] [if]
+// [reg_1] [reg_2] [reg_3] [reg_4] [addr] [res] [if]
 // set <reg> <val> - sets the register to the value
 // setr <reg1> <reg2> - sets the reg1 to the value of reg2
 // add - add register 1 and 2
@@ -63,6 +63,8 @@ public:
 
     int reg_1;
     int reg_2;
+    int reg_3;
+    int reg_4;
     int addr;
     int res;
     bool if_reg;
