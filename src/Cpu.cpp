@@ -32,223 +32,222 @@ Cpu::Cpu(const std::string& f) {
             };
 
             instructions.push_back(instruction);
-        }
-
-        for (int i = 0; i < l.length(); i++) {
-            char c = l.at(i);
-
-            if (isalnum(c)) {
-                if (isArg) {
-                    if (argCount == 1) {
-                        argBuf1.push_back(c);
-                    } else if (argCount == 2) {
-                        argBuf2.push_back(c);
-                    } else {
-                        std::cerr << "error on line " << count << ":\n";
-                        std::cerr << "Wrong number of args";
-                        exit(1);
-                    }
-                } else {
-                    strBuf.push_back(c);
-                }
-            } else if (c == ' ') {
-                isArg = true;
-                argCount++;
-                if (argCount > 2) {
-                    if (l.find('/') == std::string::npos) {
-                        std::cerr << "error on line " << count << ":\n";
-                        std::cerr << "Too much arguments";
-                        exit(1);
-                    }
-                }
-            }
-
-            if (i == l.length() - 1) {
-                break;
-            }
-        }
-
-        if (strBuf == "set") {
-            Instruction instruction = Instruction {
-                InstructionType::set,
-                argBuf1,
-                argBuf2
-            };
-
-            instructions.push_back(instruction);
-        } else if (strBuf == "setr") {
-            Instruction instruction = Instruction {
-                InstructionType::setr,
-                argBuf1,
-                argBuf2
-            };
-
-            instructions.push_back(instruction);
-        } else if (strBuf == "add") {
-            Instruction instruction = Instruction {
-                InstructionType::add,
-                argBuf1,
-                argBuf2
-            };
-
-            instructions.push_back(instruction);
-        } else if (strBuf == "sub") {
-            Instruction instruction = Instruction {
-                InstructionType::sub,
-                argBuf1,
-                argBuf2
-            };
-
-            instructions.push_back(instruction);
-        } else if (strBuf == "mul") {
-            Instruction instruction = Instruction {
-                InstructionType::mul,
-                argBuf1,
-                argBuf2
-            };
-
-            instructions.push_back(instruction);
-        } else if (strBuf == "div") {
-            Instruction instruction = Instruction {
-                InstructionType::div,
-                argBuf1,
-                argBuf2
-            };
-
-            instructions.push_back(instruction);
-        } else if (strBuf == "clear") {
-            Instruction instruction = Instruction {
-                InstructionType::clear,
-                argBuf1,
-                argBuf2
-            };
-
-            instructions.push_back(instruction);
-        } else if (strBuf == "print") {
-            Instruction instruction = Instruction {
-                InstructionType::print,
-                argBuf1,
-                argBuf2
-            };
-
-            instructions.push_back(instruction);
-        } else if (strBuf == "printa") {
-            Instruction instruction = Instruction {
-                InstructionType::printa,
-                argBuf1,
-                argBuf2
-            };
-
-            instructions.push_back(instruction);
-        } else if (strBuf == "save") {
-            Instruction instruction = Instruction {
-                InstructionType::save,
-                argBuf1
-            };
-
-            instructions.push_back(instruction);
-        } else if (strBuf == "saver") {
-            Instruction instruction = Instruction {
-                InstructionType::saver,
-                argBuf1,
-                argBuf2
-            };
-
-            instructions.push_back(instruction);
-        } else if (strBuf == "load") {
-            Instruction instruction = Instruction {
-                InstructionType::load,
-                argBuf1,
-                argBuf2
-            };
-
-            instructions.push_back(instruction);
-        } else if (strBuf == "start") {
-            Instruction instruction = Instruction {
-                InstructionType::start,
-                argBuf1,
-                argBuf2
-            };
-
-            instructions.push_back(instruction);
-        } else if (strBuf == "inc") {
-            Instruction instruction = Instruction {
-                InstructionType::inc,
-                argBuf1,
-                argBuf2
-            };
-
-            instructions.push_back(instruction);
-        } else if (strBuf == "jmpif") {
-            Instruction instruction = Instruction {
-                InstructionType::jmpif,
-                argBuf1,
-                argBuf2
-            };
-
-            instructions.push_back(instruction);
-        } else if (strBuf == "startif") {
-            Instruction instruction = Instruction {
-                InstructionType::startif,
-                argBuf1,
-                argBuf2
-            };
-
-            instructions.push_back(instruction);
-        } else if (strBuf == "jmp") {
-            Instruction instruction = Instruction {
-                InstructionType::jmp,
-                argBuf1,
-                argBuf2
-            };
-
-            instructions.push_back(instruction);
-        } else if (strBuf == "smaller") {
-            Instruction instruction = Instruction {
-                InstructionType::smaller,
-                argBuf1,
-                argBuf2
-            };
-
-            instructions.push_back(instruction);
-        } else if (strBuf == "greater") {
-            Instruction instruction = Instruction {
-                InstructionType::greater,
-                argBuf1,
-                argBuf2
-            };
-
-            instructions.push_back(instruction);
-        } else if (strBuf == "equal") {
-            Instruction instruction = Instruction {
-                InstructionType::equal,
-                argBuf1,
-                argBuf2
-            };
-
-            instructions.push_back(instruction);
-        } else if (strBuf == "skipins") {
-            Instruction instruction = Instruction {
-                InstructionType::skipins,
-                argBuf1,
-                argBuf2
-            };
-
-            instructions.push_back(instruction);
-        } else if (strBuf == "nothing") {
-            Instruction instruction = Instruction {
-                InstructionType::nothing,
-                argBuf1,
-                argBuf2
-            };
-
-            instructions.push_back(instruction);
         } else {
-            std::cerr << "error on line " << count << ":\n";
-            std::cerr << "unknown token: " << strBuf;
-            exit(1);
+
+            for (int i = 0; i < l.length(); i++) {
+                char c = l.at(i);
+
+                if (isalnum(c)) {
+                    if (isArg) {
+                        if (argCount == 1) {
+                            argBuf1.push_back(c);
+                        } else if (argCount == 2) {
+                            argBuf2.push_back(c);
+                        }
+                    } else {
+                        strBuf.push_back(c);
+                    }
+                } else if (c == ' ') {
+                    isArg = true;
+                    argCount++;
+                    if (argCount > 2) {
+                        if (l.find('/') == std::string::npos) {
+                            std::cerr << "error on line " << count << ":\n";
+                            std::cerr << "Too much arguments";
+                            exit(1);
+                        }
+                    }
+                }
+
+                if (i == l.length() - 1) {
+                    break;
+                }
+            }
+
+            if (strBuf == "set") {
+                Instruction instruction = Instruction {
+                    InstructionType::set,
+                    argBuf1,
+                    argBuf2
+                };
+
+                instructions.push_back(instruction);
+            } else if (strBuf == "setr") {
+                Instruction instruction = Instruction {
+                    InstructionType::setr,
+                    argBuf1,
+                    argBuf2
+                };
+
+                instructions.push_back(instruction);
+            } else if (strBuf == "add") {
+                Instruction instruction = Instruction {
+                    InstructionType::add,
+                    argBuf1,
+                    argBuf2
+                };
+
+                instructions.push_back(instruction);
+            } else if (strBuf == "sub") {
+                Instruction instruction = Instruction {
+                    InstructionType::sub,
+                    argBuf1,
+                    argBuf2
+                };
+
+                instructions.push_back(instruction);
+            } else if (strBuf == "mul") {
+                Instruction instruction = Instruction {
+                    InstructionType::mul,
+                    argBuf1,
+                    argBuf2
+                };
+
+                instructions.push_back(instruction);
+            } else if (strBuf == "div") {
+                Instruction instruction = Instruction {
+                    InstructionType::div,
+                    argBuf1,
+                    argBuf2
+                };
+
+                instructions.push_back(instruction);
+            } else if (strBuf == "clear") {
+                Instruction instruction = Instruction {
+                    InstructionType::clear,
+                    argBuf1,
+                    argBuf2
+                };
+
+                instructions.push_back(instruction);
+            } else if (strBuf == "print") {
+                Instruction instruction = Instruction {
+                    InstructionType::print,
+                    argBuf1,
+                    argBuf2
+                };
+
+                instructions.push_back(instruction);
+            } else if (strBuf == "printa") {
+                Instruction instruction = Instruction {
+                    InstructionType::printa,
+                    argBuf1,
+                    argBuf2
+                };
+
+                instructions.push_back(instruction);
+            } else if (strBuf == "save") {
+                Instruction instruction = Instruction {
+                    InstructionType::save,
+                    argBuf1
+                };
+
+                instructions.push_back(instruction);
+            } else if (strBuf == "saver") {
+                Instruction instruction = Instruction {
+                    InstructionType::saver,
+                    argBuf1,
+                    argBuf2
+                };
+
+                instructions.push_back(instruction);
+            } else if (strBuf == "load") {
+                Instruction instruction = Instruction {
+                    InstructionType::load,
+                    argBuf1,
+                    argBuf2
+                };
+
+                instructions.push_back(instruction);
+            } else if (strBuf == "start") {
+                Instruction instruction = Instruction {
+                    InstructionType::start,
+                    argBuf1,
+                    argBuf2
+                };
+
+                instructions.push_back(instruction);
+            } else if (strBuf == "inc") {
+                Instruction instruction = Instruction {
+                    InstructionType::inc,
+                    argBuf1,
+                    argBuf2
+                };
+
+                instructions.push_back(instruction);
+            } else if (strBuf == "jmpif") {
+                Instruction instruction = Instruction {
+                    InstructionType::jmpif,
+                    argBuf1,
+                    argBuf2
+                };
+
+                instructions.push_back(instruction);
+            } else if (strBuf == "startif") {
+                Instruction instruction = Instruction {
+                    InstructionType::startif,
+                    argBuf1,
+                    argBuf2
+                };
+
+                instructions.push_back(instruction);
+            } else if (strBuf == "jmp") {
+                Instruction instruction = Instruction {
+                    InstructionType::jmp,
+                    argBuf1,
+                    argBuf2
+                };
+
+                instructions.push_back(instruction);
+            } else if (strBuf == "smaller") {
+                Instruction instruction = Instruction {
+                    InstructionType::smaller,
+                    argBuf1,
+                    argBuf2
+                };
+
+                instructions.push_back(instruction);
+            } else if (strBuf == "greater") {
+                Instruction instruction = Instruction {
+                    InstructionType::greater,
+                    argBuf1,
+                    argBuf2
+                };
+
+                instructions.push_back(instruction);
+            } else if (strBuf == "equal") {
+                Instruction instruction = Instruction {
+                    InstructionType::equal,
+                    argBuf1,
+                    argBuf2
+                };
+
+                instructions.push_back(instruction);
+            } else if (strBuf == "skipins") {
+                Instruction instruction = Instruction {
+                    InstructionType::skipins,
+                    argBuf1,
+                    argBuf2
+                };
+
+                instructions.push_back(instruction);
+            } else if (strBuf == "nothing") {
+                Instruction instruction = Instruction {
+                    InstructionType::nothing,
+                    argBuf1,
+                    argBuf2
+                };
+
+                instructions.push_back(instruction);
+            } else {
+                std::cerr << "error on line " << count << ":\n";
+                std::cerr << "unknown token: " << strBuf;
+                exit(1);
+            }
         }
 
+
+        count++;
     }
 
     file.close();
